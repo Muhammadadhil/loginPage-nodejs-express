@@ -1,0 +1,38 @@
+<%-include('header')-%>
+
+<body>
+    <div class="container">
+        <div class="login-container border box  "id="login">
+          <h3 class="text-center mb-3 mt-3 text-dark fw-bolder ">Login here</h3>
+          <h6 class="text-center text-muted mb-3 sub-head">Log in for existing user</h6>
+
+          <form action="/route/login" method="post"> 
+            <div class="form-group mt-3">
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" >
+              <small class="text-muted labels">registered email address</small>
+            </div>
+            <div class="form-group mt-3">
+              <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" >
+            </div>
+            <div class="form-group button d-flex justify-content-center mt-4 ">
+                <button type="submit" class="btn btn-dark  btn-block submit-button rounded-pill w-25 ">Login</button>
+            </div>
+          </form>
+        </div>
+
+        <%if(typeof msg !== 'undefined'){%>
+          <div class="alter text-center text-light mt-5">
+            <%- msg %>
+          </div>
+        <%}%>
+
+        <%if(locals.invalid){%>
+          <div class="alter text-center text-light mt-5">
+            invalid username or password..!
+          </div>
+        <%}%>
+
+    </div>
+
+
+<%-include('footer')-%>
